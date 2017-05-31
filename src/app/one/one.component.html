@@ -1,4 +1,7 @@
 <p>
   one works!
 </p>
+<div>{{data}}</div>
+<button *ngIf="!ifStop" (click)="stop()">stop</button>
+<button *ngIf="ifStop" (click)="start()">start</button>
 <app-two></app-two>
