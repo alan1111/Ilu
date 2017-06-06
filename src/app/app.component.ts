@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     setInterval(()=>{
       let date = new Date().valueOf() - new Date('2010/06/20').getTime();
-      let year = Math.floor(date/(360*24*3600*1000));
-      let month = Math.ceil(date/(30*24*3600*1000)) % 12;
+      let year = Math.floor(date/(365*24*3600*1000));
+      let month = Math.ceil(date/(31*24*3600*1000)) % 12;
       let day = Math.ceil(date/(24*3600*1000)) % 30;
       let hour = Math.ceil(date/(3600*1000)) % 24;
       let minute = Math.ceil(date/(60*1000)) % 60;
