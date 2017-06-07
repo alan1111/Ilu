@@ -1,3 +1,17 @@
-<p>
-  four works!
-</p>
+<audio src="./assets/public/1.mp3"  autoplay loop></audio>
+<h1 class="title">最后十问</h1>
+<button *ngIf="reStart" style="width: 200px; height: 40px; text-align: center"  (click)="reDo()">灰常不满意，重做！！！</button>
+<div *ngIf="num == 0">
+  <h4>问： 我是不是最帅的？</h4>
+  <div (click)="numOne('a')">a、 是</div >
+  <div (click)="numOne('b')">b、 不是</div>
+</div>
+<div *ngIf="num == 1">
+  <h4>问： 每天回来你都得把饭菜做好，不得有怨言，如发现没做的，罚我玩三盘游戏？</h4>
+  <div (click)="numTwo('a')">a、 双手赞成</div>
+  <div (click)="numTwo('b')">b、 不同意</div>
+</div>
+<div>
+  <h4>结论是：{{data}}</h4>
+  <a (click)="nex()">下一题</a>
+</div>
