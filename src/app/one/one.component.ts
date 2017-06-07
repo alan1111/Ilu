@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-one',
@@ -6,23 +7,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./one.component.css']
 })
 export class OneComponent implements OnInit {
-index : number;
-datas: Array<any> = [];
-data: string;
-begin: any;
-ifStop : boolean = false;
-  constructor() { }
+  index : number;
+  story: string;
+  storys: Array<any> = [];
+  begin: any;
+  ifStop : boolean = false;
+  ifClick : boolean = false;
+  img :string;
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.datas = ['跪键盘','洗碗涮锅','面壁思过','奖励一盘','做饭去','洗菜','陪看电影','陪逛街','掏腰包','请客','解放一天'];
+    this.storys = [
+      '',
+      '看这皮滴',
+      '伤不起的憨',
+      'folow your self',
+      'ju qiu nie di duo li',
+      '不要face哇'
+    ];
     this.interVal();
   }
 
   interVal() {
     this.begin = setInterval(() => {
-      this.index = Math.ceil(Math.random()*10);
-      this.data = this.datas[this.index];
-    },100);
+      this.index = Math.ceil(Math.random()*5);
+      this.img = '../../assets/public/'+this.index+'.jpg';
+    },1000);
   }
 
   stop() {
@@ -30,7 +42,15 @@ ifStop : boolean = false;
     clearInterval(this.begin);
   }
   start() {
+    this.ifClick = false;
     this.ifStop = false;
     this.interVal();
+  }
+  cli(index :string) {
+    this.ifClick = true;
+    this.story = this.storys[index];
+  }
+  toTwo() {
+    this.router.navigateByUrl('/two');
   }
 }

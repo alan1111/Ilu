@@ -1,3 +1,11 @@
-<p>
-  two works!
-</p>
+<audio src="./assets/public/1.mp3"  autoplay loop></audio>
+<h1 class="title">幸运筛子</h1>
+<div>
+  <h3>游戏规则：必须完全按照筛子要求执行;</h3>
+  <button style="width: 100px; height: 40px; text-align: center" *ngIf="!ifStop" (click)="stop()">stop</button>
+  <button style="width: 100px; height: 40px; text-align: center" *ngIf="ifStop" (click)="start()">start</button>
+  <button style="width: 150px; height: 40px; text-align: center"  (click)="toThree()">玩不下去了！！！</button>
+</div>
+<div>
+  <p>{{data}}</p>
+</div>

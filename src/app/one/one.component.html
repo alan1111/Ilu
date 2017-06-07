@@ -1,8 +1,14 @@
-<p>
-  one works!
-</p>
-<div>{{data}}</div>
-<button *ngIf="!ifStop" (click)="stop()">stop</button>
-<button *ngIf="ifStop" (click)="start()">start</button>
-<img src="../../assets/public/2.jpg" alt="">
-<app-two></app-two>
+<audio src="./assets/public/1.mp3"  autoplay loop></audio>
+<h1 class="title">大煞风景时刻</h1>
+<div>
+  <h3>stop后,点击图片查看图片背景故事</h3>
+  <button style="width: 100px; height: 40px; text-align: center" *ngIf="!ifStop" (click)="stop()">stop</button>
+  <button style="width: 100px; height: 40px; text-align: center" *ngIf="ifStop" (click)="start()">start</button>
+  <button style="width: 150px; height: 40px; text-align: center"  (click)="toTwo()">不想看了！！！</button>
+</div>
+<div (click)="cli(index)">
+  <img [src] = "img" alt="Ilu">
+</div>
+<div *ngIf="ifStop && ifClick">
+  <p>{{story}}</p>
+</div>
